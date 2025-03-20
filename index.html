@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Watch Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #2c3e50, #3498db);
+            color: white;
+            text-align: center;
+            animation: backgroundAnimation 10s infinite alternate;
+        }
+        <script src="script.js"></script>
+    
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(120deg, #2c3e50, #3498db); }
+            100% { background: linear-gradient(120deg, #8e44ad, #e74c3c); }
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .product {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.1);
+        }
+        
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            position: relative;
+        }
+        .carousel img {
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #f1c40f, #e67e22);
+            color: black;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #e67e22, #f1c40f);
+        }
+        
+        .dark-mode {
+            background: linear-gradient(120deg, #121212, #2c3e50);
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            margin: 20px auto;
+        }
+        .form-container input, .form-container textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        .form-container button {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Luxury Watch Store</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
+            <a href="#checkout">Checkout</a>
+            <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        </nav>
+    </header>
+    
+    <div class="carousel">
+        <img src="watch1.jpg" alt="Watch 1">
+        <img src="watch2.jpg" alt="Watch 2">
+        <img src="watch3.jpg" alt="Watch 3">
+        <img src="watch4.jpg" alt="Watch 4">
+        <img src="watch5.jpg" alt="Watch 5">
+        <img src="watch6.jpg" alt="Watch 6">
+        <img src="watch7.jpg" alt="Watch 7">
+        <img src="watch8.jpg" alt="Watch 8">
+        <img src="watch9.jpg" alt="Watch 9">
+        <img src="watch10.jpg" alt="Watch 10">
+        <img src="watch11.jpg" alt="Watch 11">
+        <img src="watch12.jpg" alt="Watch 12">
+        <img src="watch13.jpg" alt="Watch 13">
+        <img src="watch14.jpg" alt="Watch 14">
+    </div>
+    
+    <section id="products">
+        <h2>Luxury Watches</h2>
+        <div class="product">
+            <img src="watch1.jpg" alt="Watch 1">
+            <h3>Elegant Gold Watch</h3>
+            <p>$299.99</p>
+            <button onclick="addToCart('Elegant Gold Watch', 299.99)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="watch2.jpg" alt="Watch 2">
+            <h3>Classic Silver Watch</h3>
+            <p>$199.99</p>
+            <button onclick="addToCart('Classic Silver Watch', 199.99)">Add to Cart</button>
+        </div>
+    </section>
+    
+    <div class="form-container">
+        <h2>Contact Us</h2>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="4"></textarea>
+        <button>Submit</button>
+    </div>
+    
+    <script>
+        let currentIndex = 0;
+        function slideShow() {
+            const slides = document.querySelectorAll(".carousel img");
+            slides.forEach((img, index) => {
+                img.style.transform = `translateX(${-100 * currentIndex}%)`;
+            });
+            currentIndex = (currentIndex + 1) % slides.length;
+        }
+        setInterval(slideShow, 3000);
+        
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+</body>
+</html>
